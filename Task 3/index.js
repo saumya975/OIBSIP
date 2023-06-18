@@ -1,52 +1,46 @@
+let input=document.querySelector('.enter-list');
+let addBtn= document.querySelector('.add-list');
+let tasks =document.querySelector('.tasks');
 
-const input = document.getElementById('input');
-const inputSelect = document.getElementById('inputSelect');
-const result = document.getElementById('result');
-const resultSelect = document.getElementById('resultSelect');
-const convertButton = document.getElementById('btn1');
-
-// Function to convert the temperature
-function convertTemperature() {
-  const inputValue = parseFloat(input.value);
-  const inputSelectValue = inputSelect.value;
-  const resultSelectValue = resultSelect.value;
-  
-  let convertedValue;
-  
-  if (inputSelectValue === 'celsius') {
-    if (resultSelectValue === 'fahrenheit') {
-      convertedValue = (inputValue * 9/5) + 32;
+input.addEventListener('keyup',() =>{
+    if(input.value.trim()!==0){
+        addBtn.classList.add('active')
     }
-     else if (resultSelectValue === 'kelvin') {
-      convertedValue = inputValue + 273.15;
-    } else {
-      convertedValue = inputValue;
+    else{
+        addBtn.classList.remove('active')
     }
-  }
-  
-  else if (inputSelectValue === 'fahrenheit') {
-    if (resultSelectValue === 'celsius') {
-      convertedValue = (inputValue - 32) * 5/9;
-    } else if (resultSelectValue === 'kelvin') {
-      convertedValue = (inputValue - 32) * 5/9 + 273.15;
-    } else {
-      convertedValue = inputValue;
+})
+
+addBtn.addEventListener('click', () =>{
+    if(input.value.trim()!==''){
+        let newItem= document.createElement('div');
+        newItem.classList.add('task-item');
+        newItem.innerHTML= ` 
+        <p>${input.value}</p>
+        <div class="item-btn">
+           <i class="fa-regular fa-pen-to-square"></i>
+           <i class="fa-solid fa-xmark"></i>
+        </div>  `
+
+        tasks.appendChild(newItem);
+        input.value='';
     }
-  } 
-  
-  else if (inputSelectValue === 'kelvin') {
-    if (resultSelectValue === 'celsius') {
-      convertedValue = inputValue - 273.15;
-    } else if (resultSelectValue === 'fahrenheit') {
-      convertedValue = (inputValue - 273.15) * 9/5 + 32;
-    } else {
-      convertedValue = inputValue;
+    else{
+        alert('Enter a task');
     }
-  }
-  
-  result.value = convertedValue.toFixed(2);
-}
+})
 
-convertButton.addEventListener('click', convertTemperature);
+//delete task
+tasks.addEventListener('click', (e)=>{
+    if(e.target.classList.contains('fa-xmark')){
+        e.target.parentElement.parentElement.remove();
+    }
+})
 
+// mark completed
 
+tasks.addEventListener('click',(e) =>{
+    if(e.target.classList.contains('fa-pen-to-square')){
+        e.target.parentElement.parentElement.classList.toggle('completed');
+    }
+})
