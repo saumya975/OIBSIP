@@ -1,54 +1,97 @@
-body{
+*{
     margin:0px;
     padding:0px;
-    background-color: rgb(190, 194, 235);
 }
-.container{
-    width:600px;
-    height:350px;
-    background:rgb(157, 161, 199);
-    position:absolute;
-    left:40%;
-    top:40%;
-    transform:translate(-30%,-40%)
-    
+body{
+    background:rgb(242, 242, 254);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    height:100vh;
+    width:100vw;
+
 }
 .heading1{
-    text-align:center;
-    margin:5px;
-    margin-top: 20px;
+    color:rgb(4, 4, 156);
+    letter-spacing: 1px;
+    margin:30px 0;
+}
+.container{
+    width:450px;
+    padding:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.1);
+    border-radius:5px;
+    background-color:rgb(246, 214, 160);
+}
+
+.list{
+    display:grid;
+    grid-template-columns:4fr 1fr;
+    gap:20 px;
+}
+
+.enter-list{
+    padding:10px;
+    border-radius:5px;
+    border:1px solid azure;
+    font-size:16px;
+}
+
+.add-list{
+    margin-left:10px;
+    border:none;    
+    border-radius:5px;
+    background-color: orange;
+    font-size:16px;
+    color:white;
+    cursor:pointer;
+    opacity: .6;
+    pointer-events:none;
+
+}
+.add-list.active{
+    opacity:1;
+    pointer-events:all;
+}
+.tasks{
+    width:100%;
+    margin-top:15px;
+    background-color: rgba(240, 255, 255, 0.444);
+
+}
+
+.task-item{
+    padding:10px;
+    border-radius:5px;
+    box-shadow:0 10 px 30 px rgba(0,0,0,0.1);
     margin-bottom:20px;
+     display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
-.innerContainer{
-    margin-top:10%;
-}
+.task-item p{
+    color:rgb(4, 4, 156);
 
-#input,#result{
-    text-align: center;
-    margin-left:20%;
-    height:35px;
-}
-#inputSelect,#resultSelect{
-    text-align: center;
-    margin-left:10%;
-    height:35px;
+    font-size:20px;
+    font-weight:800;
 
+    letter-spacing:1px;
 }
-.btn
-{
-    margin-top: 6%;
+.task-item.completed p{
+    text-decoration:line-through;
+    color:rgba(4, 4, 156, 0.623);
     
 }
-button{
-    position:absolute;
-    text-align: center;
-    background-color:rgb(111, 120, 195) ;
-    color:aliceblue;
-    text-decoration: solid;
-    border-radius: 5px;
-    margin-left: 43%;
-    height:35px;
-    font-size: medium;
-    font-weight:bold;
+.item-btn i{
+    color:rgb(4, 4, 156);
+    font-size:18px;
+    cursor:pointer;
+    
+}
 
+.item-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
