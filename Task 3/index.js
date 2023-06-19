@@ -18,7 +18,7 @@ addBtn.addEventListener('click', () =>{
         newItem.innerHTML= ` 
         <p>${input.value}</p>
         <div class="item-btn">
-           <i class="fa-regular fa-pen-to-square"></i>
+           <i class="fa-regular fa-solid fa-check"></i>
            <i class="fa-solid fa-xmark"></i>
         </div>  `
 
@@ -40,7 +40,7 @@ tasks.addEventListener('click', (e)=>{
 // mark completed
 
 tasks.addEventListener('click',(e) =>{
-    if(e.target.classList.contains('fa-pen-to-square')){
+    if(e.target.classList.contains('fa-check')){
         e.target.parentElement.parentElement.classList.toggle('completed');
     }
 })
